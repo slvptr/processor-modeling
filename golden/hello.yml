@@ -1,0 +1,42 @@
+source: |-
+  _start:
+      addi r7, r0, 99
+      addi r1, r0, 104
+      st r1, r7
+      addi r1, r0, 101
+      st r1, r7
+      addi r1, r0, 108
+      st r1, r7
+      addi r1, r0, 108
+      st r1, r7
+      addi r1, r0, 111
+      st r1, r7
+      hlt
+
+input: |-
+  []
+log: |
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 21 | instr_counter: 1 | tick: 3 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r7', 'rs': 'r0', 'imm': '99', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 22 | instr_counter: 2 | tick: 6 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r1', 'rs': 'r0', 'imm': '104', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 23 | instr_counter: 3 | tick: 9 | last_instr: {'opcode': <Opcode.ST: 'st'>, 'rd': 'r1', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 24 | instr_counter: 4 | tick: 12 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r1', 'rs': 'r0', 'imm': '101', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 25 | instr_counter: 5 | tick: 15 | last_instr: {'opcode': <Opcode.ST: 'st'>, 'rd': 'r1', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 6 | tick: 18 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r1', 'rs': 'r0', 'imm': '108', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 27 | instr_counter: 7 | tick: 21 | last_instr: {'opcode': <Opcode.ST: 'st'>, 'rd': 'r1', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 28 | instr_counter: 8 | tick: 24 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r1', 'rs': 'r0', 'imm': '108', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 29 | instr_counter: 9 | tick: 27 | last_instr: {'opcode': <Opcode.ST: 'st'>, 'rd': 'r1', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 30 | instr_counter: 10 | tick: 30 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r1', 'rs': 'r0', 'imm': '111', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 31 | instr_counter: 11 | tick: 33 | last_instr: {'opcode': <Opcode.ST: 'st'>, 'rd': 'r1', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:316 {<Register.R0: 'r0'>: 0, <Register.R1: 'r1'>: 111, <Register.R2: 'r2'>: 0, <Register.R3: 'r3'>: 0, <Register.R4: 'r4'>: 0, <Register.R5: 'r5'>: 0, <Register.R6: 'r6'>: 0, <Register.R7: 'r7'>: 99, <Register.PC: 'pc'>: 31, <Register.SP: 'sp'>: 97}
+output: |
+  ============================================================
+  output: hello
+  instr: 12  ticks: 34
+code: '{"start": 0, "code": [{"opcode": "addi", "rd": "r7", "rs": "r0", "imm": "99"},
+  {"opcode": "addi", "rd": "r1", "rs": "r0", "imm": "104"}, {"opcode": "st", "rd":
+  "r1", "rs": "r7"}, {"opcode": "addi", "rd": "r1", "rs": "r0", "imm": "101"}, {"opcode":
+  "st", "rd": "r1", "rs": "r7"}, {"opcode": "addi", "rd": "r1", "rs": "r0", "imm":
+  "108"}, {"opcode": "st", "rd": "r1", "rs": "r7"}, {"opcode": "addi", "rd": "r1",
+  "rs": "r0", "imm": "108"}, {"opcode": "st", "rd": "r1", "rs": "r7"}, {"opcode":
+  "addi", "rd": "r1", "rs": "r0", "imm": "111"}, {"opcode": "st", "rd": "r1", "rs":
+  "r7"}, {"opcode": "hlt"}]}'

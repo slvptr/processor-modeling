@@ -1,0 +1,119 @@
+source: |-
+  _int:
+      addi r7, r0, 98
+      ld r6, r7
+      beq r6, r0, end
+      addi r7, r0, 99
+      st r6, r7
+      iret
+  _start:
+      jmp _start
+  end:
+      hlt
+
+input: |-
+  [(1, 'H'), (10, 'e'), (20, 'l'), (25, 'l'), (100, 'o'), (111, ','), (112, ' '), (119, 'w'), (160, 'o'), (165, 'r'), (175, 'l'), (190, 'd'), (200, '!'), (235, '\0')]
+log: |
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 20 | instr_counter: 1 | tick: 4 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 21 | instr_counter: 2 | tick: 7 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r7', 'rs': 'r0', 'imm': '98', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 22 | instr_counter: 3 | tick: 10 | last_instr: {'opcode': <Opcode.LD: 'ld'>, 'rd': 'r6', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 23 | instr_counter: 4 | tick: 12 | last_instr: {'opcode': <Opcode.BEQ: 'beq'>, 'rs1': 'r6', 'rs2': 'r0', 'imm': 5, 'type': <InstructionType.E: 'e'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 24 | instr_counter: 5 | tick: 15 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r7', 'rs': 'r0', 'imm': '99', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 25 | instr_counter: 6 | tick: 18 | last_instr: {'opcode': <Opcode.ST: 'st'>, 'rd': 'r6', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 7 | tick: 21 | last_instr: {'opcode': <Opcode.IRET: 'iret'>, 'type': <InstructionType.F: 'f'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 20 | instr_counter: 8 | tick: 25 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 21 | instr_counter: 9 | tick: 28 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r7', 'rs': 'r0', 'imm': '98', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 22 | instr_counter: 10 | tick: 31 | last_instr: {'opcode': <Opcode.LD: 'ld'>, 'rd': 'r6', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 23 | instr_counter: 11 | tick: 33 | last_instr: {'opcode': <Opcode.BEQ: 'beq'>, 'rs1': 'r6', 'rs2': 'r0', 'imm': 5, 'type': <InstructionType.E: 'e'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 24 | instr_counter: 12 | tick: 36 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r7', 'rs': 'r0', 'imm': '99', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 25 | instr_counter: 13 | tick: 39 | last_instr: {'opcode': <Opcode.ST: 'st'>, 'rd': 'r6', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 14 | tick: 42 | last_instr: {'opcode': <Opcode.IRET: 'iret'>, 'type': <InstructionType.F: 'f'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 20 | instr_counter: 15 | tick: 46 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 21 | instr_counter: 16 | tick: 49 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r7', 'rs': 'r0', 'imm': '98', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 22 | instr_counter: 17 | tick: 52 | last_instr: {'opcode': <Opcode.LD: 'ld'>, 'rd': 'r6', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 23 | instr_counter: 18 | tick: 54 | last_instr: {'opcode': <Opcode.BEQ: 'beq'>, 'rs1': 'r6', 'rs2': 'r0', 'imm': 5, 'type': <InstructionType.E: 'e'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 24 | instr_counter: 19 | tick: 57 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r7', 'rs': 'r0', 'imm': '99', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 25 | instr_counter: 20 | tick: 60 | last_instr: {'opcode': <Opcode.ST: 'st'>, 'rd': 'r6', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 21 | tick: 63 | last_instr: {'opcode': <Opcode.IRET: 'iret'>, 'type': <InstructionType.F: 'f'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 22 | tick: 65 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 23 | tick: 67 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 24 | tick: 69 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 25 | tick: 71 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 26 | tick: 73 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 27 | tick: 75 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 28 | tick: 77 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 29 | tick: 79 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 30 | tick: 81 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 31 | tick: 83 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 32 | tick: 85 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 33 | tick: 87 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 34 | tick: 89 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 35 | tick: 91 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 36 | tick: 93 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 37 | tick: 95 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 38 | tick: 97 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 39 | tick: 99 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 20 | instr_counter: 40 | tick: 103 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 21 | instr_counter: 41 | tick: 106 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r7', 'rs': 'r0', 'imm': '98', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 22 | instr_counter: 42 | tick: 109 | last_instr: {'opcode': <Opcode.LD: 'ld'>, 'rd': 'r6', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 23 | instr_counter: 43 | tick: 111 | last_instr: {'opcode': <Opcode.BEQ: 'beq'>, 'rs1': 'r6', 'rs2': 'r0', 'imm': 5, 'type': <InstructionType.E: 'e'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 24 | instr_counter: 44 | tick: 114 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r7', 'rs': 'r0', 'imm': '99', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 25 | instr_counter: 45 | tick: 117 | last_instr: {'opcode': <Opcode.ST: 'st'>, 'rd': 'r6', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 46 | tick: 120 | last_instr: {'opcode': <Opcode.IRET: 'iret'>, 'type': <InstructionType.F: 'f'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 20 | instr_counter: 47 | tick: 124 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 21 | instr_counter: 48 | tick: 127 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r7', 'rs': 'r0', 'imm': '98', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 22 | instr_counter: 49 | tick: 130 | last_instr: {'opcode': <Opcode.LD: 'ld'>, 'rd': 'r6', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 23 | instr_counter: 50 | tick: 132 | last_instr: {'opcode': <Opcode.BEQ: 'beq'>, 'rs1': 'r6', 'rs2': 'r0', 'imm': 5, 'type': <InstructionType.E: 'e'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 24 | instr_counter: 51 | tick: 135 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r7', 'rs': 'r0', 'imm': '99', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 25 | instr_counter: 52 | tick: 138 | last_instr: {'opcode': <Opcode.ST: 'st'>, 'rd': 'r6', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 53 | tick: 141 | last_instr: {'opcode': <Opcode.IRET: 'iret'>, 'type': <InstructionType.F: 'f'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 54 | tick: 143 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 55 | tick: 145 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 56 | tick: 147 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 57 | tick: 149 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 58 | tick: 151 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 59 | tick: 153 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 60 | tick: 155 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 61 | tick: 157 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 62 | tick: 159 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 20 | instr_counter: 63 | tick: 163 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 21 | instr_counter: 64 | tick: 166 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r7', 'rs': 'r0', 'imm': '98', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 22 | instr_counter: 65 | tick: 169 | last_instr: {'opcode': <Opcode.LD: 'ld'>, 'rd': 'r6', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 23 | instr_counter: 66 | tick: 171 | last_instr: {'opcode': <Opcode.BEQ: 'beq'>, 'rs1': 'r6', 'rs2': 'r0', 'imm': 5, 'type': <InstructionType.E: 'e'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 24 | instr_counter: 67 | tick: 174 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r7', 'rs': 'r0', 'imm': '99', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 25 | instr_counter: 68 | tick: 177 | last_instr: {'opcode': <Opcode.ST: 'st'>, 'rd': 'r6', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 69 | tick: 180 | last_instr: {'opcode': <Opcode.IRET: 'iret'>, 'type': <InstructionType.F: 'f'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 20 | instr_counter: 70 | tick: 184 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 21 | instr_counter: 71 | tick: 187 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r7', 'rs': 'r0', 'imm': '98', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 22 | instr_counter: 72 | tick: 190 | last_instr: {'opcode': <Opcode.LD: 'ld'>, 'rd': 'r6', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 23 | instr_counter: 73 | tick: 192 | last_instr: {'opcode': <Opcode.BEQ: 'beq'>, 'rs1': 'r6', 'rs2': 'r0', 'imm': 5, 'type': <InstructionType.E: 'e'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 24 | instr_counter: 74 | tick: 195 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r7', 'rs': 'r0', 'imm': '99', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 25 | instr_counter: 75 | tick: 198 | last_instr: {'opcode': <Opcode.ST: 'st'>, 'rd': 'r6', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 76 | tick: 201 | last_instr: {'opcode': <Opcode.IRET: 'iret'>, 'type': <InstructionType.F: 'f'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 20 | instr_counter: 77 | tick: 205 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 21 | instr_counter: 78 | tick: 208 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r7', 'rs': 'r0', 'imm': '98', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 22 | instr_counter: 79 | tick: 211 | last_instr: {'opcode': <Opcode.LD: 'ld'>, 'rd': 'r6', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 23 | instr_counter: 80 | tick: 213 | last_instr: {'opcode': <Opcode.BEQ: 'beq'>, 'rs1': 'r6', 'rs2': 'r0', 'imm': 5, 'type': <InstructionType.E: 'e'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 24 | instr_counter: 81 | tick: 216 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r7', 'rs': 'r0', 'imm': '99', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 25 | instr_counter: 82 | tick: 219 | last_instr: {'opcode': <Opcode.ST: 'st'>, 'rd': 'r6', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 83 | tick: 222 | last_instr: {'opcode': <Opcode.IRET: 'iret'>, 'type': <InstructionType.F: 'f'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 84 | tick: 224 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 85 | tick: 226 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 86 | tick: 228 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 87 | tick: 230 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 88 | tick: 232 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: False | PC: 26 | instr_counter: 89 | tick: 234 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 20 | instr_counter: 90 | tick: 238 | last_instr: {'opcode': <Opcode.JMP: 'jmp'>, 'imm': 0, 'type': <InstructionType.D: 'd'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 21 | instr_counter: 91 | tick: 241 | last_instr: {'opcode': <Opcode.ADDI: 'addi'>, 'rd': 'r7', 'rs': 'r0', 'imm': '98', 'type': <InstructionType.B: 'b'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 22 | instr_counter: 92 | tick: 244 | last_instr: {'opcode': <Opcode.LD: 'ld'>, 'rd': 'r6', 'rs': 'r7', 'type': <InstructionType.C: 'c'>}
+  DEBUG    root:machine.py:308 is_interrupted: True | PC: 27 | instr_counter: 93 | tick: 247 | last_instr: {'opcode': <Opcode.BEQ: 'beq'>, 'rs1': 'r6', 'rs2': 'r0', 'imm': 5, 'type': <InstructionType.E: 'e'>}
+  DEBUG    root:machine.py:316 {<Register.R0: 'r0'>: 0, <Register.R1: 'r1'>: 0, <Register.R2: 'r2'>: 0, <Register.R3: 'r3'>: 0, <Register.R4: 'r4'>: 0, <Register.R5: 'r5'>: 0, <Register.R6: 'r6'>: 0, <Register.R7: 'r7'>: 98, <Register.PC: 'pc'>: 27, <Register.SP: 'sp'>: 80}
+output: |
+  ============================================================
+  output: Hllowol!
+  instr: 94  ticks: 248
+code: '{"start": 6, "code": [{"opcode": "addi", "rd": "r7", "rs": "r0", "imm": "98"},
+  {"opcode": "ld", "rd": "r6", "rs": "r7"}, {"opcode": "beq", "rs1": "r6", "rs2":
+  "r0", "imm": 5}, {"opcode": "addi", "rd": "r7", "rs": "r0", "imm": "99"}, {"opcode":
+  "st", "rd": "r6", "rs": "r7"}, {"opcode": "iret"}, {"opcode": "jmp", "imm": 0},
+  {"opcode": "hlt"}]}'

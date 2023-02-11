@@ -1,0 +1,1 @@
+{"start": 6, "code": [{"opcode": "addi", "rd": "r7", "rs": "r0", "imm": "98"}, {"opcode": "ld", "rd": "r6", "rs": "r7"}, {"opcode": "beq", "rs1": "r6", "rs2": "r0", "imm": 5}, {"opcode": "addi", "rd": "r7", "rs": "r0", "imm": "99"}, {"opcode": "st", "rd": "r6", "rs": "r7"}, {"opcode": "iret"}, {"opcode": "jmp", "imm": 0}, {"opcode": "hlt"}]}
